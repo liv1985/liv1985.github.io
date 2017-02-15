@@ -58,6 +58,8 @@
 		</div>
 		
 	</div>
+	
+	<div id="stats" style="position: fixed; left: 0px; top: 0px; height: 20px; width: 200px;">Hello, world!</div>
 </body>
 <script>
 	var scrollProjects = false;
@@ -69,6 +71,8 @@
 		   hH2 = $('#contact-me-typed').outerHeight(),
 		   wH = $(window).height(),
 		   wS = $(this).scrollTop();
+		   
+		$("#stats").html(wS);
 		if (!scrollProjects && wS + wH > (hT + hH * 0.5)){
 		//if (wS > hT || $(window).scrollTop() + $(window).height() == $(document).height()){
 			scrollProjects = true;
