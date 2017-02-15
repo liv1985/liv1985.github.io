@@ -62,15 +62,17 @@
 	<div id="stats" style="position: fixed; left: 0px; top: 0px; height: 20px; width: 200px;">Hello, world!</div>
 </body>
 <script>
+
 	var scrollProjects = false;
 	var scrollContact = false;
-	$(window).scroll(function() {
+	
+	function scrollHandler(e){
 		var hT = $('#project-rows').offset().top,
-		   hH = $('#project-rows').outerHeight(),
-		   hT2 = $('#contact-me-typed').offset().top,
-		   hH2 = $('#contact-me-typed').outerHeight(),
-		   wH = $(window).height(),
-		   wS = $(this).scrollTop();
+		hH = $('#project-rows').outerHeight(),
+		hT2 = $('#contact-me-typed').offset().top,
+		hH2 = $('#contact-me-typed').outerHeight(),
+		wH = $(window).height(),
+		wS = $(this).scrollTop();
 		   
 		$("#stats").html(wS);
 		if (!scrollProjects && wS + wH > (hT + hH * 0.5)){
@@ -89,8 +91,9 @@
 				typeSpeed: -8
 			});
 		}
-	});
-
+	}
+	$(window).bind("touchmove", scrollHandler);
+	$(window).scroll(scrollHandler);
 
 
 	$("#titlename").fadeIn(1000, function(){
